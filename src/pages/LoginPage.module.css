@@ -1,0 +1,252 @@
+.page {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: #fff;
+}
+
+.left {
+  width: 510px;
+  flex-shrink: 0;
+  background: #fff;
+  padding: 190px 56px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 52px;
+}
+
+.logoSq {
+  width: 32px;
+  height: 32px;
+  background: #1A56DB;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 800;
+  color: #fff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.logoText {
+  font-size: 17px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #111827;
+  letter-spacing: -0.4px;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #6B7280;
+  margin-bottom: 32px;
+}
+
+.apiError {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: #FEF2F2;
+  border: 1px solid #FECACA;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 13.5px;
+  color: #DC2626;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.apiErrorClose {
+  background: none;
+  border: none;
+  color: #DC2626;
+  font-size: 20px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 7px;
+}
+
+.input {
+  width: 100%;
+  border: 1.5px solid #D1D5DB;
+  border-radius: 8px;
+  padding: 13px 16px;
+  font-size: 15px;
+  color: #111827;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: #fff;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.input:focus {
+  border-color: #1A56DB;
+  box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.1);
+}
+
+.input::placeholder { color: #9CA3AF; }
+
+.inputErr {
+  border-color: #DC2626 !important;
+  box-shadow: none !important;
+}
+
+.pwWrap { position: relative; }
+
+.inputPw { padding-right: 50px; }
+
+.eyeBtn {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #9CA3AF;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  transition: color 0.15s;
+}
+
+.eyeBtn:hover { color: #374151; }
+
+.fieldErr {
+  font-size: 12px;
+  color: #DC2626;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+.forgotRow {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -12px;
+  margin-bottom: 28px;
+}
+
+.forgot {
+  font-size: 13px;
+  color: #1A56DB;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.forgot:hover { text-decoration: underline; }
+
+.btnSubmit {
+  width: 100%;
+  background: #1A56DB;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 24px;
+  transition: background 0.15s;
+}
+
+.btnSubmit:hover:not(:disabled) { background: #1245B5; }
+.btnSubmit:disabled { opacity: 0.7; cursor: default; }
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid rgba(255,255,255,0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.divLine {
+  flex: 1;
+  height: 1px;
+  background: #E5E7EB;
+}
+
+.divText {
+  font-size: 13px;
+  color: #9CA3AF;
+}
+
+.btnSSO {
+  width: 100%;
+  background: #fff;
+  border: 1.5px solid #D1D5DB;
+  border-radius: 8px;
+  padding: 13px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #111827;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.btnSSO:hover {
+  border-color: #1A56DB;
+  background: #EBF2FF;
+}
+
+.right {
+  flex: 1;
+  background-image: url('t1.jpeg');
+  background-size: cover;
+  background-position: center;
+}
+
+@media (max-width: 860px) {
+  .left  { width: 100%; padding: 36px 28px; }
+  .right { display: none; }
+}
