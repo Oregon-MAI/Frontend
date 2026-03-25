@@ -1,14 +1,13 @@
 export interface Desk {
   id: string
-  zone: string
-  zoneName: string
+  zone: 'A' | 'B' | 'D'
   status: 'free' | 'busy' | 'mine'
   amenities: string[]
   bookedSlots: string[]
 }
 
 export interface Zone {
-  id: string
+  id: 'A' | 'B' | 'D'
   name: string
   desks: Desk[]
 }

@@ -2,7 +2,7 @@ import { useState, FormEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import styles from './LoginPage.module.css'
-import { login } from '../api/auth'
+import { login } from '../api/authApi'
 
 
 function EyeOn() {
@@ -61,7 +61,7 @@ export default function LoginPage() {
 
     setIsLoading(true)
     try {
-      const data = await login({ email: email.trim(), password })
+      const data = await login({ login: email.trim(), password })
       localStorage.setItem('access_token', data.access_token)
       setUser(data.user)
       navigate('/map')

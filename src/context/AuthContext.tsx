@@ -4,7 +4,7 @@ import type { Booking } from '../types/map'
 interface User {
   name: string
   surname: string
-  email: string
+  login: string
   role: 'USER' | 'ADMIN'
 }
 
