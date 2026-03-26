@@ -94,7 +94,7 @@
   flex-shrink: 0;
 }
 
-.dotFree { background: #fff; border: 1.5px solid #E5E7EB; }
-.dotBusy { background: #E8EBF2; }
+.dotFree { background: #A7F3D0; border: 1.5px solid #E5E7EB; }
+.dotBusy { background: #9CA3AF; }
 .dotMine { background: #1A56DB; }
 .dotRoom { background: #EBF2FF; border: 1.5px dashed #C4D9FA; }

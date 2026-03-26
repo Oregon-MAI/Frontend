@@ -75,16 +75,16 @@ export async function register(payload: RegisterRequest): Promise<LoginResponse>
   return data
 }
 
-// GET /api/v1/auth/validate
+// POST /api/v1/auth/validate
 export async function validate(): Promise<ValidateResponse> {
-  const { data } = await api.get<ValidateResponse>('/auth/validate')
+  const { data } = await api.post<ValidateResponse>('/auth/validate')
   return data
 }
 
-// GET /api/v1/auth/refresh  (sends refresh token in Authorization header)
+// POST /api/v1/auth/refresh  (sends refresh token in Authorization header)
 export async function refreshTokens(): Promise<LoginResponse> {
   const refreshToken = localStorage.getItem('refresh_token')
-  const { data } = await axios.get<LoginResponse>(`${BASE_URL}/auth/refresh`, {
+  const { data } = await axios.post<LoginResponse>(`${BASE_URL}/auth/refresh`, null, {
     headers: { Authorization: `Bearer ${refreshToken}` },
   })
   return data

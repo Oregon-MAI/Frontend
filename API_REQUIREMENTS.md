@@ -54,7 +54,7 @@ Authorization: Bearer {access_token}
 
 ---
 
-### GET /auth/validate
+### POST /auth/validate
 Проверка текущей сессии и получение данных пользователя. Вызывается при каждом открытии приложения.
 
 **Response:**
@@ -68,11 +68,11 @@ Authorization: Bearer {access_token}
   "roles": ["string"]
 }
 ```
-Роли: `ADMIN`, `USER` (или аналог)
+Роли: `ADMIN`, `USER` 
 
 ---
 
-### GET /auth/refresh
+### POST /auth/refresh
 Обновление access_token по refresh_token. Вызывается автоматически при 401.
 
 **Response:**

@@ -108,10 +108,6 @@ export default function MapPage() {
         <div className={`${styles.legendDot} ${styles.dotMine}`} />
         Моё место
       </div>
-      <div className={styles.legendItem}>
-        <div className={`${styles.legendDot} ${styles.dotRoom}`} />
-        Переговорная
-      </div>
     </div>
 
     {error && <div className={styles.error}>{error}</div>}
