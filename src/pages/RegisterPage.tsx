@@ -1,7 +1,6 @@
 import { useState, FormEvent } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-import { useAuth } from '../context/AuthContext'
-import { register, validate as validateToken } from '../api/authApi'
+import { register } from '../api/authApi'
 import styles from './LoginPage.module.css'
 
 function EyeOn() {
@@ -23,7 +22,6 @@ function EyeOff() {
 }
 
 export default function RegisterPage() {
-  const { setUser } = useAuth()
   const navigate = useNavigate()
 
   const [login,       setLogin]       = useState('')
@@ -90,9 +88,9 @@ export default function RegisterPage() {
       if (!tokens?.access_token) throw new Error('no_backend')
       localStorage.setItem('access_token', tokens.access_token)
       localStorage.setItem('refresh_token', tokens.refresh_token)
-      const userData = await validateToken()
-      if (!userData?.id) throw new Error('no_backend')
-      setUser(userData)
+      // const userData = await validateToken()
+      // if (!userData?.id) throw new Error('no_backend')
+      // setUser(userData)
       navigate('/map')
     } catch (err: unknown) {
       if (err && typeof err === 'object' && 'response' in err) {

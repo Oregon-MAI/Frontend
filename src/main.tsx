@@ -9,6 +9,8 @@ import './index.css'
 import MeetingRoomsPage from './pages/MeetingRoomsPage'
 import EquipmentPage from './pages/EquipmentPage'
 import RegisterPage from './pages/RegisterPage'
+import AdminLayout from './pages/admin/AdminLayout'
+import AdminWorkspacesPage from './pages/admin/AdminWorkspacesPage'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -28,6 +30,10 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
             <ProtectedRoute><EquipmentPage /></ProtectedRoute>
           } />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<AdminWorkspacesPage />} />
+            <Route path="workspaces" element={<AdminWorkspacesPage />} />
+          </Route>
           <Route path="*" element={<LoginPage />} />
         </Routes>
       </AuthProvider>

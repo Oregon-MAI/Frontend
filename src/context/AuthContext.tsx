@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect } from 'react'
 import type { Booking } from '../types/map'
-import { validate } from '../api/authApi'
+// import { validate } from '../api/authApi'
 
 export interface User {
   id: string
@@ -34,19 +34,20 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       return
     }
 
-    validate()
-      .then(data => {
-        if (data?.id && data?.login) setUser(data)
-        else {
-          localStorage.removeItem('access_token')
-          localStorage.removeItem('refresh_token')
-        }
-      })
-      .catch(() => {
-        localStorage.removeItem('access_token')
-        localStorage.removeItem('refresh_token')
-      })
-      .finally(() => setIsLoading(false))
+    // validate()
+    //   .then(data => {
+    //     if (data?.id && data?.login) setUser(data)
+    //     else {
+    //       localStorage.removeItem('access_token')
+    //       localStorage.removeItem('refresh_token')
+    //     }
+    //   })
+    //   .catch(() => {
+    //     localStorage.removeItem('access_token')
+    //     localStorage.removeItem('refresh_token')
+    //   })
+    //   .finally(() => setIsLoading(false))
+    setIsLoading(false)
   }, [])
 
   const isAdmin = user?.roles?.includes('ADMIN') ?? false

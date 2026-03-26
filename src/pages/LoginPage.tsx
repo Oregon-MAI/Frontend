@@ -2,7 +2,7 @@ import { useState, FormEvent } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import styles from './LoginPage.module.css'
-import { login, validate as validateToken } from '../api/authApi'
+import { login } from '../api/authApi'
 
 
 function EyeOn() {
@@ -24,7 +24,7 @@ function EyeOff() {
 }
 
 export default function LoginPage() {
-  const { setUser } = useAuth()
+  const { } = useAuth()
   const navigate = useNavigate()
 
   const [email,       setEmail]       = useState('')
@@ -59,15 +59,23 @@ export default function LoginPage() {
     setError(null)
     if (!validate()) return
 
+    // TODO: remove stub when validate endpoint is ready
+    if (email.trim() === 'admin@mail.ru' && password === 'admin1') {
+      localStorage.setItem('access_token', 'stub_admin_token')
+      localStorage.setItem('refresh_token', 'stub_admin_refresh')
+      navigate('/admin')
+      return
+    }
+
     setIsLoading(true)
     try {
       const tokens = await login({ login: email.trim(), password })
       if (!tokens?.access_token) throw new Error('no_backend')
       localStorage.setItem('access_token', tokens.access_token)
       localStorage.setItem('refresh_token', tokens.refresh_token)
-      const userData = await validateToken()
-      if (!userData?.id) throw new Error('no_backend')
-      setUser(userData)
+      // const userData = await validateToken()
+      // if (!userData?.id) throw new Error('no_backend')
+      // setUser(userData)
       navigate('/map')
     } catch (err: unknown) {
       if (err && typeof err === 'object' && 'response' in err) {
