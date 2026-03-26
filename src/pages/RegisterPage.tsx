@@ -87,9 +87,11 @@ export default function RegisterPage() {
     setIsLoading(true)
     try {
       const tokens = await register({ login: login.trim(), password, name: name.trim(), surname: surname.trim(), email: email.trim() })
+      if (!tokens?.access_token) throw new Error('no_backend')
       localStorage.setItem('access_token', tokens.access_token)
       localStorage.setItem('refresh_token', tokens.refresh_token)
       const userData = await validateToken()
+      if (!userData?.id) throw new Error('no_backend')
       setUser(userData)
       navigate('/map')
     } catch (err: unknown) {
@@ -99,6 +101,8 @@ export default function RegisterPage() {
       } else {
         setError('Нет связи с сервером')
       }
+      localStorage.removeItem('access_token')
+      localStorage.removeItem('refresh_token')
     } finally {
       setIsLoading(false)
     }
